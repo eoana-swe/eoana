@@ -1,0 +1,43 @@
+id:
+    - ID
+    - Id
+    - REG_ID
+id_group:
+    - ID_GROUP
+    - Station Id
+    - REG_ID_GROUP
+statn:
+    - STATION_NAME
+    - Namn
+synonyms:
+    - SYNONYM_NAMES
+    - Synonymer
+ices_name: ICES_STATION_NAME
+lat_dd:
+    - LATITUDE_WGS84_SWEREF99_DD
+    - Position WGS84 Dec N
+lon_dd:
+    - LONGITUDE_WGS84_SWEREF99_DD
+    - Position WGS84 Dec E
+lat_dm:
+    - LAT_DM
+    - Position WGS84 DM N
+lon_dm:
+    - LONG_DM
+    - Position WGS84 DM E
+lat_sweref99tm:
+    - LATITUDE_SWEREF99TM
+    - Position SWEREF99 TM N
+lon_sweref99tm:
+    - LONGITUDE_SWEREF99TM
+    - Position SWEREF99 TM E
+radius: OUT_OF_BOUNDS_RADIUS
+wadep: WADEP
+eucd: EU_CD
+media:
+    - MEDIA
+    - Media
+comnt:
+    - COMNT
+    - Kommentar
+old_id: OLD_SHARK_ID
