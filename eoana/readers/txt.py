@@ -91,16 +91,16 @@ def text_reader(reader_type, *args, **kwargs):
     :param kwargs: dict
     :return:
     """
-    if reader_type is 'pandas':
+    if reader_type == 'pandas':
         base = PandasReaderBase
-    elif reader_type is 'numpy':
+    elif reader_type == 'numpy':
         base = NumpyReaderBase
     else:
         base = NoneReaderBase
 
     class TextReader(base):
-        """
-        """
+        """Doc."""
+
         def __init__(self):
             super(TextReader, self).__init__()
 

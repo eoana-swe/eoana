@@ -8,3 +8,4 @@ yaml
 rasterio
 xarray
 pyproj
+pyresample
