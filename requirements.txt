@@ -2,3 +2,9 @@ PyYAML
 numpy
 pandas
 matplotlib
+
+satpy
+yaml
+rasterio
+xarray
+pyproj
