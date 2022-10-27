@@ -1,0 +1,62 @@
+HELCOM_ID	level_3	rst_value	longi	latit
+1	Bothnian Bay Finnish Coastal waters	1	24.245627	64.85557
+2	Bothnian Bay Swedish Coastal waters	2	22.472022	65.337014
+3	The Quark Finnish Coastal waters	3	21.291901	63.230761
+4	The Quark Swedish Coastal waters	4	20.404421	63.616598
+5	Bothnian Sea Finnish Coastal waters	5	21.205802	61.635559
+6	Bothnian Sea Swedish Coastal waters	6	18.007067	61.744195
+7	Åland Sea Swedish Coastal waters	7	18.917696	60.064424
+8	Åland Sea - Archipelago Sea Finnish coastal water	8	21.076823	60.125222
+9	Northern Baltic Proper Swedish Coastal waters	9	18.972631	59.424115
+10	Northern Baltic Proper Estonian Coastal waters	10	22.310077	58.769184
+11	Gulf of Finland Finnish coastal waters	11	25.589793	60.162481
+12	Gulf of Finland Estonian Coastal waters	12	25.478739	59.561277
+13	Gulf of Finland Russian Coastal waters	13	28.807966	60.134026
+14	Gulf of Riga Estonian Coastal waters	14	23.361083	58.380258
+15	Gulf of Riga Latvian Coastal waters	15	23.53683	57.305734
+16	Western Gotland Basin Swedish Coastal waters	16	17.107893	57.740066
+17	Eastern Gotland Basin Estonian Coastal waters	17	21.947175	58.15955
+18	Eastern Gotland Basin Latvian Coastal waters	18	21.224905	56.870838
+19	Eastern Gotland Basin Lithuanian Coastal waters	19	21.11702	55.51116
+20	Eastern Gotland Basin Swedish Coastal waters	20	18.816877	57.47404
+21	Eastern Gotland Basin Russian Coastal waters	21	20.908176	55.06162
+22	Eastern Gotland Basin Polish Coastal waters	22	17.861439	54.815251
+23	Gdansk Basin Russian Coastal waters	23	19.976464	54.624121
+24	Gdansk Basin Polish Coastal waters	24	18.943659	54.491558
+25	Bornholm Basin Swedish Coastal waters	25	15.150829	56.02417
+26	Bornholm Basin Polish Coastal waters	26	15.14297	54.049017
+27	Bornholm Basin Danish Coastal waters	27	14.934562	55.136486
+28	Bornholm Basin German Coastal waters	28	13.989814	53.963488
+29	Arkona Basin Swedish Coastal waters	29	13.304509	55.401268
+30	Arkona Basin Danish Coastal waters	30	12.337291	55.182448
+31	Arkona Basin German Coastal waters	31	13.24843	54.417856
+32	Mecklenburg Bight German Coastal waters	32	11.403623	54.168292
+33	Mecklenburg Bight Danish Coastal waters	33	11.72307	54.600366
+34	Kiel Bight Danish Coastal waters	34	11.232237	54.684395
+35	Kiel Bight German Coastal waters	35	10.309736	54.554378
+36	Belts Danish Coastal waters	36	10.62466	55.406331
+37	The Sound Swedish Coastal waters	37	12.837761	55.791719
+38	The Sound Danish Coastal waters	38	12.689141	55.739353
+39	Kattegat Swedish Coastal waters	39	12.229204	57.00379
+40	Kattegat Danish Coastal waters, including Limfjord	40	11.11228	56.6134
+SEA-001	Kattegat	41	11.498869	56.869187
+SEA-002	Great Belt	42	10.905541	55.49823
+SEA-003	The Sound	43	12.678898	55.846507
+SEA-004	Kiel Bay	44	10.64395	54.599231
+SEA-005	Bay of Mecklenburg	45	11.672392	54.31959
+SEA-006	Arkona Basin	46	13.48468	54.943831
+SEA-007	Bornholm Basin	47	15.852271	55.180624
+SEA-008	Gdansk Basin	48	19.305419	54.708791
+SEA-009	Eastern Gotland Basin	49	19.673974	56.52203
+SEA-010	Western Gotland Basin	50	17.820998	57.58991
+SEA-011	Gulf of Riga	51	23.380665	57.635457
+SEA-012	Northern Baltic Proper	52	20.916881	59.088565
+SEA-013	Gulf of Finland	53	26.378024	59.874746
+SEA-014	Åland Sea	54	19.488116	59.907733
+SEA-015	Bothnian Sea	55	19.396631	61.761116
+SEA-016	The Quark	56	20.995529	63.512791
+SEA-017	Bothnian Bay	57	22.792358	64.649378
+Skagerrak_no	Skagerrak_NO_coastal	58	10.025829	59.006505
+Skagerrak_se	Skagerrak_SE_coastal	59	11.30098	58.402321
+SEA-Skagerrak	Skagerrak	60	9.581772	58.073893
+Skagerrak_dk	Skagerrak_DK_coastal	61	9.498572	57.32759

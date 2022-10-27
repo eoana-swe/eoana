@@ -8,6 +8,7 @@ Created on 2020-12-11 15:57
 """
 import os
 from pathlib import Path
+import rasterio as rio
 from eoana.readers.yml import yaml_reader
 from eoana.utils import generate_filepaths, recursive_dict_update
 
@@ -72,24 +73,23 @@ class SettingsBase:
 
 
 class Settings(SettingsBase):
-    """
-    """
+    """Doc."""
+
     def __init__(self, *args, **kwargs):
         super(Settings, self).__init__()
         self.base_directory = os.path.dirname(os.path.realpath(__file__))
-        etc_path = os.path.join(self.base_directory, 'etc')
-        self._load_settings(etc_path)
+        self.etc_path = os.path.join(self.base_directory, 'etc')
+        self._load_settings()
 
         self.attributes = kwargs.get('attributes') or self.default_attributes
 
-    def _load_settings(self, etc_path):
+    def _load_settings(self):
         """
         Loading all .yaml files from etc directory.
         Special handling of readers and writers (see SettingsBase.__setattr__())
-        :param etc_path: str, local path to settings
         :return: Updates attributes of self
         """
-        paths = generate_filepaths(etc_path, pattern='.yaml')
+        paths = generate_filepaths(self.etc_path, pattern='.yaml')
         etc_data = {}
         for path in paths:
             data = yaml_reader(path)
@@ -143,6 +143,27 @@ class Settings(SettingsBase):
         file_name = kwargs.get('file_name') or kwargs.get('default_file_name')
 
         return os.path.join(target_path, file_name)
+
+    def get_basin_grid(self):
+        """Doc."""
+        rst = rio.open(os.path.join(
+            self.etc_path,
+            'basin_grid',
+            'SVAR_2016_3b_Hanö.tiff',
+            # 'SVAR_2016_3b.tiff',
+        ))
+        array = rst.read()
+        return array[0]
+
+    def get_basin_grid_corners(self):
+        """Doc."""
+        rst = rio.open(os.path.join(
+            self.etc_path,
+            'basin_grid',
+            'SVAR_2016_3b_Hanö.tiff',
+            # 'SVAR_2016_3b.tiff',
+        ))
+        return rst.bounds
 
 
 if __name__ == '__main__':

@@ -7,11 +7,62 @@ Created on 2020-12-11 15:57
 
 """
 import os
+import math
 import numpy as np
 from collections import Mapping
+from shapely.geometry import Polygon, Point
 from datetime import datetime
 from pyproj import CRS, transform
 from decimal import Decimal, ROUND_HALF_UP
+from functools import reduce
+
+
+class BitFlags:
+    """Manipulate flags stored bitwise."""
+
+    def __init__(self, masks, meanings):
+        """Init the flags."""
+        self._masks = masks
+        self._meanings = meanings
+        self._map = dict(zip(meanings, masks))
+
+    def match_item(self, item, data):
+        """Match any of the item."""
+        mask = self._map[item]
+        return np.bitwise_and(data, mask).astype(np.bool)
+
+    def match_any(self, items, data):
+        """Match any of the items in data."""
+        mask = reduce(np.bitwise_or, [self._map[item] for item in items])
+        return np.bitwise_and(data, mask).astype(np.bool)
+
+    def __eq__(self, other):
+        """Check equality."""
+        return all(self._masks == other._masks) and self._meanings == other._meanings
+
+
+def get_mask(satpy_scn):
+    """Doc."""
+    bflags = BitFlags(satpy_scn['wqsf'].attrs['flag_masks'],
+                      satpy_scn['wqsf'].attrs['flag_meanings'].split())
+
+    return bflags.match_any(["INVALID", "SNOW_ICE", "INLAND_WATER", "SUSPECT",
+                             "AC_FAIL", "CLOUD", "HISOLZEN", "CLOUD_MARGIN",
+                             "CLOUD_AMBIGUOUS", "LOWRW", "LAND"],
+                            satpy_scn['wqsf'])
+
+
+def get_polygon(llc=None, urc=None, coord_list=None):
+    if coord_list:
+        pointlist = [Point(math.degrees(c.lon), math.degrees(c.lat)) for c in coord_list]
+    else:
+        pointlist = [
+            Point(llc),
+            Point(urc[0], llc[1]),
+            Point(urc),
+            Point(llc[0], urc[1])
+        ]
+    return Polygon([[p.x, p.y] for p in pointlist])
 
 
 def decmin_to_decdeg(pos, string_type=True, decimals=4):
@@ -67,6 +118,14 @@ def generate_filepaths(directory: str, pattern=''):
                 yield os.path.abspath(os.path.join(path, f))
 
 
+def generate_folder_paths(directory: str, pattern=''):
+    """Doc."""
+    for path, subdir, fids in os.walk(directory):
+        for f in fids:
+            if pattern in subdir:
+                yield os.path.abspath(os.path.join(path, f))
+
+
 def get_now_time(fmt=None) -> str:
     """
     :param fmt: str, format to export datetime object
@@ -74,6 +133,20 @@ def get_now_time(fmt=None) -> str:
     """
     fmt = fmt or '%Y-%m-%d %H:%M:%S'
     return datetime.now().strftime(fmt)
+
+
+def get_idx(lat_array, lon_array, lat, lon):
+    """Return grid-index for closest position based on the given lat and lon."""
+    new_lat_mat = abs(lat_array - lat)
+    new_lon_mat = abs(lon_array - lon)
+    pos_in_mat = new_lat_mat + new_lon_mat
+    # i = np.where(pos_in_mat == pos_in_mat.min())  # return: (array(idx_X), array(idx_Y))
+    i = np.unravel_index(pos_in_mat.argmin(), pos_in_mat.shape)
+    # print(i)
+    if len(i) > 2:
+        print('Multiple position combination.. NOT GOOD')
+
+    return i
 
 
 def recursive_dict_update(d: dict, u: dict) -> dict:

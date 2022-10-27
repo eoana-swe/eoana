@@ -1,0 +1,72 @@
+baws:
+  description: BAWS
+  projection:
+    proj: aea
+    ellps: bessel
+    lon_0: 14.0
+    lat_1: 60.0
+    lat_2: 60.0
+  shape:
+    height: 1400
+    width: 1400
+  area_extent:
+    lower_left_xy: [-475617.0, 5324430.0]
+    upper_right_xy: [924383.0, 6724430.0]
+baws250:
+  description: BAWS, 250m resolution
+  projection:
+    proj: aea
+    ellps: WGS84
+    lon_0: 14.0
+    lat_1: 60.0
+    lat_2: 60.0
+  shape:
+    height: 5600
+    width: 5600
+  area_extent:
+    lower_left_xy: [-475617.0, 5324430.0]
+    upper_right_xy: [924383.0, 6724430.0]
+baws300_sweref99tm:
+  description: BAWS, 300m resolution, sweref99tm
+    degrees
+  projection:
+    init: epsg:3006
+  shape:
+    height: 4667
+    width: 4667
+  area_extent:
+    lower_left_xy: [-49739, 5954123]
+    upper_right_xy: [1350361, 7354223]
+baws1000_sweref99tm:
+  description: BAWS, 1000m resolution, sweref99tm
+    degrees
+  projection:
+    init: epsg:3006
+  shape:
+    height: 1400
+    width: 1400
+  area_extent:
+    lower_left_xy: [-49739, 5954123]
+    upper_right_xy: [1350261, 7354123]
+baws10000_sweref99tm:
+  description: BAWS, 10000m resolution, sweref99tm
+    degrees
+  projection:
+    init: epsg:3006
+  shape:
+    height: 140
+    width: 140
+  area_extent:
+    lower_left_xy: [-49739, 5954123]
+    upper_right_xy: [1350261, 7354123]
+baws_openstreetmap_merc:
+  description: BAWS, epsg:3857
+    degrees
+  projection:
+    init: epsg:3857
+  shape:
+    height: 1400
+    width: 1227
+  area_extent:
+    lower_left_xy: [949042.1, 7093356.2]
+    upper_right_xy: [3452919.6, 9950266.5]
